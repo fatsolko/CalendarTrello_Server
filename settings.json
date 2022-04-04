@@ -1,0 +1,9 @@
+{
+  "bot_token": "1834164941:AAFSvHoFGMG_RWDsZxWO2j4ay1LtoCwFxoY",
+  "redirect_url": "https://beetzung.com/redirect",
+  "redirect_url_localhost": "http://localhost:5000/redirect",
+  "ip": "0.0.0.0",
+  "port": 5000,
+  "bot_link": "http://t.me/CalendarTrello_bot",
+  "trello_key": "224f6adae2e797aa48a9caee49f30868"
+}

@@ -1,0 +1,9 @@
+{
+    "client_id": "720494048020-u14hamf3dhsf2hv663rr190724030tu7.apps.googleusercontent.com",
+    "client_secret": "2Z4C04LK5ss67KxGY11r8wyJ",
+    "refresh_token": "1//09-jd7DPsVVDLCgYIARAAGAkSNwF-L9IrUg-L3bnG2Y6bgD0sHHex2k9flGysZyNkrcXktPIB702JxNYc1ydK-kQ0RXPf6GSwmw4",
+    "scopes": [
+        "https://www.googleapis.com/auth/calendar.readonly"
+    ],
+    "token": "ya29.A0ARrdaM8ZiE8V6Bun7rZOPLuJ_Nt_kDSkRAbW0cbakU96bwIG0gjX3uesz96OnjaItppRVJZukGcorRjR-uiKHIQACoAxc91XsLOGA16s7YLU6SMRUOsHsdmAeaPWCPTjrKc9b3c_crw2i8Um44O2TZCiC6O6"
+}

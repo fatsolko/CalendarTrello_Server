@@ -1,0 +1,48 @@
+{
+    "boards": [
+        {
+            "id": "60b7b698530bfd7331474358",
+            "name": "To do",
+            "url": "https://trello.com/b/TZyS1Z7r/to-do"
+        },
+        {
+            "id": "60e2ff90d193ae45553755c0",
+            "name": "Сроки",
+            "url": "https://trello.com/b/23sMR197/%D1%81%D1%80%D0%BE%D0%BA%D0%B8"
+        }
+    ],
+    "selected_board": {
+        "id": "60b7b698530bfd7331474358",
+        "lists": [
+            {
+                "closed": false,
+                "id": "60b7b698530bfd733147435a",
+                "idBoard": "60b7b698530bfd7331474358",
+                "name": "В процессе",
+                "pos": 32768,
+                "softLimit": null,
+                "subscribed": false
+            },
+            {
+                "closed": false,
+                "id": "60b7b698530bfd733147435b",
+                "idBoard": "60b7b698530bfd7331474358",
+                "name": "Готово",
+                "pos": 49152,
+                "softLimit": null,
+                "subscribed": false
+            }
+        ],
+        "name": "To do",
+        "selected_list": {
+            "closed": false,
+            "id": "60b7b698530bfd733147435b",
+            "idBoard": "60b7b698530bfd7331474358",
+            "name": "Готово",
+            "pos": 49152,
+            "softLimit": null,
+            "subscribed": false
+        },
+        "url": "https://trello.com/b/TZyS1Z7r/to-do"
+    }
+}

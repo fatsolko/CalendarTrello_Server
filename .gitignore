@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+dockerfile
+credentials.json
+settings.json
+/server_caltr/users/

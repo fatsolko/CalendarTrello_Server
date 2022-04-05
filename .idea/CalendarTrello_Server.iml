@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/venv_server_caltr/Lib" />
+      <excludeFolder url="file://$MODULE_DIR$/venv_server_caltr/Scripts" />
+      <excludeFolder url="file://$MODULE_DIR$/venv_server_caltr" />
+      <excludeFolder url="file://$MODULE_DIR$/venv_server_ct" />
+    </content>
+    <orderEntry type="jdk" jdkName="Python 3.10 (CalendarTrello_Server)" jdkType="Python SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

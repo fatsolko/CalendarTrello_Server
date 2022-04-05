@@ -1,23 +1,28 @@
-import os
-import ssl
-import sys
-from http.server import HTTPServer, BaseHTTPRequestHandler
-import requests
+from flask import Flask
+from flask import request
 from requests.structures import CaseInsensitiveDict
+import requests
+import sys
 from utils_server import *
 from pages import *
+from pymongo_utils import *
+from urllib.parse import unquote
+
 
 print('Python %s on %s' % (sys.version, sys.platform))
-sys.path.extend(['D:\\Programming\\Python\\CalendarTrelloBot', 'D:\\Programming\\Python\\pyMQ', 'D:/Programming/Python/CalendarTrelloBot'])
+sys.path.extend(['D:\\Programming\\Python\\CalendarTrello_Server', 'D:/Programming/Python/CalendarTrello_Server'])
 
 
-f = open('../credentials.json')
+app = Flask(__name__)
+
+
+f = open(r'D:\Programming\Python\CalendarTrello_Server\credentials.json')
 credentials = json.load(f)["web"]
 client_id = credentials["client_id"]
 client_secret = credentials["client_secret"]
 f.close()
 
-f = open('../settings.json')
+f = open(r'D:\Programming\Python\CalendarTrello_Server\settings.json')
 settings = json.load(f)
 bot_token = settings["bot_token"]
 redirect_url = settings["redirect_url_localhost"] #TODO settings["redirect_url"]
@@ -67,72 +72,57 @@ def notify_success_google_auth(chat_id, success):
         bot.send_message(chat_id, msg, reply_markup=hideBoard)
 
 
-class RequestHandler(BaseHTTPRequestHandler):
-    def do_get(self):
-        print('got request for ' + self.path)
-        request_ip = self.client_address[0]
-        if self.path.startswith("/login"):
-            chat_id = int(find_between(self.path, 'user=', '&auth_link'))
-            url = self.path.split("&auth_link=", 1)[1]
-            j = {"chat_id": chat_id}
-            with open("users/{}.json".format(request_ip), "w") as outfile:
-                json.dump(j, outfile)
-            web_page = first_page.replace("{url1}", url).replace("{url2}", url)
-            self.send_response(200)
-            self.send_header("Content-type", "text/html")
-            self.end_headers()
-            self.wfile.write(bytes(web_page, "utf-8"))
-            self.wfile.flush()
+@app.errorhandler(404)
+def page_not_found(e):
+    return error_page, 404
 
-        elif self.path.startswith("/redirect"):
-            user_id_path = 'users/{}.json'.format(request_ip)
-            if not os.path.exists(user_id_path):
-                pass
-            user_id_file = open(user_id_path)
-            chat_id = json.load(user_id_file)["chat_id"]
-            code = find_between(self.path, "code=", "&scope")
-            access_token, refresh_token = send_token_request(code)
-            if access_token == 'no_token' or refresh_token == 'no_token':
-                notify_success_google_auth(chat_id, False)
-                self.send_response(200)
-                self.send_header("Content-type", "text/html")
-                self.end_headers()
-                self.wfile.write(bytes(redirect_new_page, "utf-8"))
-                self.wfile.flush()
-                return
-            print(access_token)
-            print(refresh_token)
-            notify_success_google_auth(chat_id, True)
-            j = {
-                'token': access_token,
-                'refresh_token': refresh_token,
-                "client_id": client_id,
-                "client_secret": client_secret,
-                "scopes": SCOPES
-            }
-            with open(get_google_token_path(chat_id), "w") as outfile:
-                json.dump(j, outfile, sort_keys=True, indent=4)
-            self.send_response(200)
-            self.send_header("Content-type", "text/html")
-            self.end_headers()
-            self.wfile.write(bytes(redirect_new_page, "utf-8"))
-            self.wfile.flush()
-        else:
-            self.send_response(200)
-            self.send_header("Content-type", "text/html")
-            self.end_headers()
-            self.wfile.write(bytes(error_page, "utf-8"))
-            self.wfile.flush()
 
-    def do_post(self):
-        pass
+@app.route("/", methods=['GET'])
+def index():
+    return first_page
+
+
+@app.route("/login", methods=['GET'])
+def login_mq():
+    print('got request for ' + request.url)
+    request_ip = request.environ['REMOTE_ADDR']
+    chat_id = request.args.get('user')
+    # send info to db
+    j = {"chat_id": chat_id,
+         "ip": request_ip}
+    set_creds_data(request_ip, j)
+    # get auth link and encode
+    url = request.url.split("&auth_link=", 1)[1]
+    url = unquote(url)
+    web_page = first_page.replace("{url1}", url).replace("{url2}", url)
+    print('login done')
+    return web_page
+
+
+@app.route("/redirect", methods=['GET'])
+def redirect_mq():
+    print('redirecting')
+    request_ip = request.environ['REMOTE_ADDR']
+    chat_id = get_creds_dbdata({"ip": request_ip}, 'chat_id')
+    code = request.args.get('code')
+    access_token, refresh_token = send_token_request(code)
+    print(access_token)
+    print(refresh_token)
+    if access_token == 'no_token' or refresh_token == 'no_token':
+        notify_success_google_auth(chat_id, False)
+        return error_page
+    notify_success_google_auth(chat_id, True)
+    j = {
+        'token': access_token,
+        'refresh_token': refresh_token,
+        "client_id": client_id,
+        "client_secret": client_secret,
+        "scopes": SCOPES
+    }
+    set_creds_data(request_ip, j)
+    return redirect_new_page, 200
 
 
 if __name__ == "__main__":
-    HTTPserver = HTTPServer((ip, port), RequestHandler)
-    if port == 443:
-        HTTPserver.socket = ssl.wrap_socket(HTTPserver.socket, keyfile='/etc/letsencrypt/live/fatsolko.xyz/privkey.pem',
-                                            certfile='/etc/letsencrypt/live/fatsolko.xyz/fullchain.pem',
-                                            server_side=True)
-    HTTPserver.serve_forever()
+    app.run(debug=True)
 

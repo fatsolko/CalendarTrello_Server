@@ -4,7 +4,7 @@ import telebot
 
 
 def get_logging_trello_keyboard():
-    f = open('../settings.json')
+    f = open(r'D:\Programming\Python\CalendarTrello_Server\settings.json')
     settings = json.load(f)
     trello_key = settings["trello_key"]
     f.close()

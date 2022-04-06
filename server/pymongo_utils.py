@@ -10,7 +10,7 @@ mongoDB_login = settings["mongoDB_login"]
 client = MongoClient(f"mongodb+srv://{mongoDB_login}@clusterbotequip.aj1qm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 
 # Connect to our database
-db = client['airMQ']
+db = client['CalendarTrello']
 
 
 def insert_document(collection, data):
@@ -20,7 +20,7 @@ def insert_document(collection, data):
     return collection.insert_one(data).inserted_id
 
 
-def set_user_dbdata(file, data):
+def set_user_db_data(file, data):
     """ Function to set a data into a document and
         return the document's id.
         """
@@ -28,7 +28,7 @@ def set_user_dbdata(file, data):
     return collection.update_one({"chat_id": str(file)}, {"$set": data}, upsert=True)
 
 
-def get_creds_dbdata(marker, data):
+def get_creds_db_data(marker, data):
     """ Function to set a data into a document and
         return the document's id.
         """
@@ -36,7 +36,7 @@ def get_creds_dbdata(marker, data):
     return collection.find_one(marker)[data]
 
 
-def get_user_dbdata(chat_id, data):
+def get_user_db_data(chat_id, data):
     """ Function to set a data into a document and
         return the document's id.
         """
@@ -44,7 +44,7 @@ def get_user_dbdata(chat_id, data):
     return collection.find_one({"chat_id": str(chat_id)})[data]
 
 
-def set_creds_data(file, data):
+def set_creds_db_data(file, data):
     """ Function to set a data into a document and
         return the document's id.
         """

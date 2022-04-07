@@ -1,6 +1,5 @@
 import os
 import pyshorteners
-import json
 import telebot
 from dotenv import load_dotenv
 

@@ -1,4 +1,3 @@
-import os
 from flask import Flask
 from flask import request
 from requests.structures import CaseInsensitiveDict

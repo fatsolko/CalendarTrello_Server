@@ -1,13 +1,14 @@
 import pymongo
+import os
 import json
 from pymongo import MongoClient
+from dotenv import load_dotenv
 
-f = open(r'd:\Programming\Python\pyMQ\settings_mq.json')
-settings = json.load(f)
-mongoDB_login = settings["mongoDB_login"]
+load_dotenv()
 
+MONGODB_LOGIN = os.getenv("MONGODB_LOGIN")
 # Create the client
-client = MongoClient(f"mongodb+srv://{mongoDB_login}@clusterbotequip.aj1qm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+client = MongoClient(f"mongodb+srv://{MONGODB_LOGIN}@clusterbotequip.aj1qm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 
 # Connect to our database
 db = client['CalendarTrello']
@@ -74,5 +75,3 @@ def get_test_dbdata(chat_id, data):
         """
     collection = db['Test_data']
     return collection.find_one({"chat_id": str(chat_id)})[data]
-
-# print(insert_document(series_collection, new_show))

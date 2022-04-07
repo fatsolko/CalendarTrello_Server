@@ -1,16 +1,18 @@
+import os
 import pyshorteners
 import json
 import telebot
+from dotenv import load_dotenv
+
+load_dotenv()
+
+TRELLO_KEY = os.getenv('TRELLO_KEY')
 
 
 def get_logging_trello_keyboard():
-    f = open(r'D:\Programming\Python\CalendarTrello_Server\settings.json')
-    settings = json.load(f)
-    trello_key = settings["trello_key"]
-    f.close()
     keyboard_login_trello = telebot.types.InlineKeyboardMarkup()
     auth_url_update_trello = 'https://trello.com/1/authorize?' \
-                             f'key={trello_key}&' \
+                             f'key={TRELLO_KEY}&' \
                              'expiration=never&' \
                              'name=CalendarTrello&' \
                              'scope=read,write&' \
@@ -21,10 +23,6 @@ def get_logging_trello_keyboard():
     url_button_trello = telebot.types.InlineKeyboardButton(text="Страница авторизации Trello", url=short_url_trello)
     keyboard_login_trello.row(url_button_trello)
     return keyboard_login_trello
-
-
-def get_google_token_path(chat_id):
-    return 'users/{}_google_token.json'.format(chat_id)
 
 
 def find_between(s, first, last):

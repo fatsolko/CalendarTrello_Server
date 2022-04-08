@@ -71,7 +71,7 @@ def notify_success_google_auth(chat_id, success):
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return error_page, 404
+    return 404, redirect("https://t.me/CalendarTrello_bot")
 
 
 @app.route("/", methods=['GET'])
@@ -114,7 +114,7 @@ def redirect_mq():
                    "client_secret": CLIENT_SECRET}
          }
     set_creds_db_data(request_ip, j)
-    return redirect("https:/t.me//CalendarTrello_bot", 200)
+    return redirect("https://t.me/CalendarTrello_bot", 200)
 
 
 if __name__ == "__main__":

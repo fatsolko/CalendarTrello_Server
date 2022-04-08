@@ -118,4 +118,7 @@ def redirect_mq():
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(host=IP, port=PORT)
+    app.run(
+        ssl_context=('/etc/letsencrypt/live/cert.pem', '/etc/letsencrypt/live/privkey.pem'),
+        host=IP, port=PORT
+    )

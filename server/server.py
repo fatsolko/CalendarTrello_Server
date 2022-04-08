@@ -103,6 +103,7 @@ def redirect_mq():
     chat_id = get_creds_db_data({"ip": request_ip}, 'chat_id')
     code = request.args.get('code')
     access_token, refresh_token = send_token_request(code)
+    print(access_token, refresh_token)
     if access_token == 'no_token' or refresh_token == 'no_token':
         notify_success_google_auth(chat_id, False)
         return error_page

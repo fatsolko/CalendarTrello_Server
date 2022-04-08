@@ -11,8 +11,8 @@ error_page = """
 <html>
 <body>
 <meta charset="utf-8">
-<h1>Прывiтанне!</h1>
-<img src="https://files.liveworksheets.com/def_files/2020/4/1/4011430193088/4011430193088001.jpg?ssl=1" width="450" height="600"/>
+<h1>Authorization error</h1>
+<img src="https://sun9-86.userapi.com/impg/FAW9sJf02MbPCNtH1gSqVTysI9cbrtMTYz64Mw/OcPPwSeBk88.jpg?ssl=1" width="640" height="640"/>
 </body>
 </html>
 

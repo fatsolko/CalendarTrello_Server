@@ -12,7 +12,7 @@ error_page = """
 <body>
 <meta charset="utf-8">
 <h1>Authorization error</h1>
-<img src="https://sun9-86.userapi.com/impg/FAW9sJf02MbPCNtH1gSqVTysI9cbrtMTYz64Mw/OcPPwSeBk88.jpg?ssl=1" width="640" height="640"/>
+<img src="https://sun9-86.userapi.com/impg/FAW9sJf02MbPCNtH1gSqVTysI9cbrtMTYz64Mw/OcPPwSeBk88.jpg?size=640x640&quality=96&sign=6ebe995511e5ca5b72db78734a80b010&type=album" width="640" height="640" class="center"/>
 </body>
 </html>
 

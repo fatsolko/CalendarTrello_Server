@@ -40,15 +40,15 @@ def send_token_request(code):
            f"&grant_type=authorization_code"
     response = requests.post(url, headers=headers, data=data)
     j = response.json()
-    print(j)
+    # print(j)
     refresh_token = "no_token"
     access_token = "no_token"
     if "access_token" in j:
         access_token = j["access_token"]
-        print(access_token)
+        # print(access_token)
     if "refresh_token" in j:
         refresh_token = j["refresh_token"]
-        print(refresh_token)
+        # print(refresh_token)
     return access_token, refresh_token
 
 
@@ -82,7 +82,7 @@ def index():
 
 @app.route("/login", methods=['GET'])
 def login_mq():
-    print('got request for ' + request.url)
+    # print('got request for ' + request.url)
     request_ip = request.environ['REMOTE_ADDR']
     chat_id = request.args.get('user')
     # send info to db
@@ -93,18 +93,17 @@ def login_mq():
     url = request.url.split("&auth_link=", 1)[1]
     url = unquote(url)
     web_page = first_page.replace("{url1}", url).replace("{url2}", url)
-    print('login done')
+    # print('login done')
     return web_page
 
 
 @app.route("/redirect", methods=['GET'])
 def redirect_mq():
-    print('redirecting')
+    # print('redirecting')
     request_ip = request.environ['REMOTE_ADDR']
     chat_id = get_creds_db_data({"ip": request_ip}, 'chat_id')
     code = request.args.get('code')
     access_token, refresh_token = send_token_request(code)
-    print(access_token, refresh_token)
     if access_token == 'no_token' or refresh_token == 'no_token':
         notify_success_google_auth(chat_id, False)
         return error_page

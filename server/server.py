@@ -33,7 +33,7 @@ def send_token_request(code):
     data = f"code={code}" \
            f"&client_id={CLIENT_ID}" \
            f"&client_secret={CLIENT_SECRET}" \
-           f"&redirect_uri={REDIRECT_URI_LOCALHOST}" \
+           f"&redirect_uri={REDIRECT_URI}" \
            f"&grant_type=authorization_code"
     response = requests.post(url, headers=headers, data=data)
     j = response.json()

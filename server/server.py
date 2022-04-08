@@ -118,5 +118,4 @@ def redirect_mq():
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(ssl_context=('/etc/letsencrypt/live/fatsolko.xyz/fullchain.pem', '/etc/letsencrypt/live/fatsolko.xyz'
-                                                                             '/privkey.pem'), host=IP, port=PORT)
+    app.run(ssl_context=('/etc/letsencrypt/live/fatsolko.xyz/fullchain.pem', '/etc/letsencrypt/live/fatsolko.xyz/privkey.pem'), host=IP, port=PORT)

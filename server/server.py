@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import request
+from flask import request, redirect
 from requests.structures import CaseInsensitiveDict
 import requests
 from utils_server import *
@@ -114,7 +114,7 @@ def redirect_mq():
                    "client_secret": CLIENT_SECRET}
          }
     set_creds_db_data(request_ip, j)
-    return redirect_new_page, 200
+    return redirect("t.me/CalendarTrello_bot", 200)
 
 
 if __name__ == "__main__":

@@ -63,7 +63,7 @@ def notify_success_google_auth(chat_id, success):
                          'Пример:\n\n/token 132fv6asd7da849ff',
                          reply_markup=keyboard_login_trello)
     else:
-        msg = "Похоже, вы уже логинились. Если хотите перелогиниться в этот аккаунт, " \
+        msg = "Похоже, вы уже авторизовались. Если хотите перелогиниться в этот аккаунт, " \
               + "запретите доступ приложению CalendarTrello по ссылке" \
                 " https://myaccount.google.com/u/0/permissions и попробуйте еще раз: /start"
         bot.send_message(chat_id, msg, reply_markup=hideBoard)
@@ -94,7 +94,7 @@ def login_mq():
     url = unquote(url)
     web_page = first_page.replace("{url1}", url).replace("{url2}", url)
     # print('login done')
-    return web_page
+    return redirect(web_page)
 
 
 @app.route("/redirect", methods=['GET'])

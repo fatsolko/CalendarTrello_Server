@@ -6,8 +6,8 @@ from utils_server import *
 from pages import *
 from pymongo_utils import *
 from urllib.parse import unquote
+from flask_talisman import Talisman
 from dotenv import load_dotenv
-
 load_dotenv()
 
 CREDENTIALS = os.getenv('CREDENTIALS')
@@ -23,6 +23,8 @@ PORT = os.getenv('PORT')
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
 app = Flask(__name__)
+Talisman(app, content_security_policy=None)
+
 bot = telebot.TeleBot(BOT_TOKEN)
 
 

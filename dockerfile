@@ -16,7 +16,7 @@ EXPOSE 80
 # make sure you include the -u flag to have our stdout logged
 CMD ["python", "server/server.py",\
     "--certfile", "/etc/letsencrypt/live/fatsolko.xyz/fullchain.pem",\
-    "--keyfile", "/etc/letsencrypt/live/fatsolko.xyz/privkey.pem"]
+    "--keyfile", "/etc/letsencrypt/live/fatsolko.xyz/privkey.pem", "app:app"]
 
 
 

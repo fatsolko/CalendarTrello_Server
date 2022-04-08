@@ -8,6 +8,7 @@ from pymongo_utils import *
 from urllib.parse import unquote
 from flask_talisman import Talisman
 from dotenv import load_dotenv
+
 load_dotenv()
 
 CREDENTIALS = os.getenv('CREDENTIALS')
@@ -109,9 +110,9 @@ def redirect_mq():
         return error_page
     notify_success_google_auth(chat_id, True)
     j = {"creds": {'access_token': access_token,
-                    'refresh_token': refresh_token,
-                    "client_id": CLIENT_ID,
-                    "client_secret": CLIENT_SECRET}
+                   'refresh_token': refresh_token,
+                   "client_id": CLIENT_ID,
+                   "client_secret": CLIENT_SECRET}
          }
     set_creds_db_data(request_ip, j)
     return redirect_new_page, 200
@@ -119,5 +120,7 @@ def redirect_mq():
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(ssl_context=('/etc/letsencrypt/live/fatsolko.xyz/cert.pem', '/etc/letsencrypt/live/fatsolko.xyz/privkey.pem'), host=IP, port=PORT)
+    app.run(
+        ssl_context=('/etc/letsencrypt/live/fatsolko.xyz/cert.pem', '/etc/letsencrypt/live/fatsolko.xyz/privkey.pem'),
+        host=IP, port=PORT)
 # ssl_context=('/etc/letsencrypt/live/fatsolko.xyz/cert.pem', '/etc/letsencrypt/live/fatsolko.xyz/privkey.pem'),

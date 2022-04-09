@@ -92,7 +92,7 @@ def login_mq():
     url = request.url.split("&auth_link=", 1)[1]
     url = unquote(url)
     web_page = pages.first_page.replace("{url1}", url).replace("{url2}", url)
-    return redirect("https://fatsolko.xyz")
+    return redirect(url)
 
 
 @app.route("/redirect", methods=['GET'])

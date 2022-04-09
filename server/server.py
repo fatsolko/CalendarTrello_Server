@@ -71,7 +71,7 @@ def notify_success_google_auth(chat_id, success):
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return pages.error_page, 404
+    return redirect("https://myaccount.google.com/u/0/permissions")
 
 
 @app.route("/", methods=['GET'])

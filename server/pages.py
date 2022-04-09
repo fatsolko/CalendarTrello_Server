@@ -9,11 +9,11 @@ index = """
 
 <BODY BGCOLOR="FFFFFF">
 
-<CENTER><IMG SRC="https://pbs.twimg.com/profile_images/1487789259/x_489697e0_400x400.jpg" ALIGN="BOTTOM"> </CENTER>
+<CENTER><IMG SRC="https://pbs.twimg.com/profile_images/1487789259/x_489697e0_400x400.jpg" ALIGN="CENTER"> </CENTER>
 
 <HR>
 
-<b>Welcome</b>
+<b>Welcome ALIGN="CENTER"</b>
 
 <HR>
 

@@ -3,7 +3,7 @@ from flask import request, redirect
 from requests.structures import CaseInsensitiveDict
 import requests
 from utils_server import *
-from pages import *
+import pages
 from pymongo_utils import *
 from urllib.parse import unquote
 from flask_talisman import Talisman
@@ -71,13 +71,12 @@ def notify_success_google_auth(chat_id, success):
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return error_page, 404
+    return pages.error_page, 404
 
 
 @app.route("/", methods=['GET'])
 def index():
-    print("op")
-    return index
+    return pages.index
 
 
 @app.route("/login", methods=['GET'])
@@ -92,9 +91,9 @@ def login_mq():
     # get auth link and encode
     url = request.url.split("&auth_link=", 1)[1]
     url = unquote(url)
-    web_page = first_page.replace("{url1}", url).replace("{url2}", url)
+    web_page = pages.first_page.replace("{url1}", url).replace("{url2}", url)
     # print('login done')
-    return web_page
+    return pages.web_page
 
 
 @app.route("/redirect", methods=['GET'])
@@ -106,7 +105,7 @@ def redirect_mq():
     access_token, refresh_token = send_token_request(code)
     if access_token == 'no_token' or refresh_token == 'no_token':
         notify_success_google_auth(chat_id, False)
-        return error_page
+        return pages.error_page
     notify_success_google_auth(chat_id, True)
     j = {"creds": {'access_token': access_token,
                    'refresh_token': refresh_token,
@@ -114,7 +113,7 @@ def redirect_mq():
                    "client_secret": CLIENT_SECRET}
          }
     set_creds_db_data(request_ip, j)
-    return redirect_new_page, 200
+    return pages.redirect_new_page, 200
 
 
 if __name__ == "__main__":

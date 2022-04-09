@@ -94,7 +94,7 @@ def login_mq():
     url = unquote(url)
     web_page = first_page.replace("{url1}", url).replace("{url2}", url)
     # print('login done')
-    return redirect(url, 200)
+    return redirect(url), 200
 
 
 @app.route("/redirect", methods=['GET'])

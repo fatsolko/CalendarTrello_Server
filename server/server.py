@@ -71,7 +71,7 @@ def notify_success_google_auth(chat_id, success):
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return redirect("https://myaccount.google.com/u/0/permissions")
+    return pages.error_page, 404
 
 
 @app.route("/", methods=['GET'])
@@ -104,7 +104,7 @@ def redirect_mq():
     access_token, refresh_token = send_token_request(code)
     if access_token == 'no_token' or refresh_token == 'no_token':
         notify_success_google_auth(chat_id, False)
-        return pages.error_page
+        return redirect("https://myaccount.google.com/u/0/permissions")
     notify_success_google_auth(chat_id, True)
     j = {"creds": {'access_token': access_token,
                    'refresh_token': refresh_token,

@@ -1,3 +1,26 @@
+index = """
+<HTML>
+
+<HEAD>
+
+<TITLE>Hi this is Fatsolko!</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="FFFFFF">
+
+<CENTER><IMG SRC="https://pbs.twimg.com/profile_images/1487789259/x_489697e0_400x400.jpg" ALIGN="BOTTOM"> </CENTER>
+
+<HR>
+
+<b>Welcome</b>
+
+<HR>
+
+</BODY>
+
+</HTML>
+"""
 first_page = """
 <head>
   <meta http-equiv="refresh" content="5; URL={url1}" />

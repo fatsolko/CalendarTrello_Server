@@ -77,7 +77,7 @@ def page_not_found(e):
 @app.route("/", methods=['GET'])
 def index():
     print("op")
-    return first_page
+    return index
 
 
 @app.route("/login", methods=['GET'])

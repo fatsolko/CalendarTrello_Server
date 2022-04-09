@@ -15,8 +15,7 @@ EXPOSE 443
 
 # make sure you include the -u flag to have our stdout logged
 CMD ["python","-u", "server/server.py"]
-#     "--certfile", "/etc/letsencrypt/live/fatsolko.xyz/cert.pem",\
-#     "--keyfile", "/etc/letsencrypt/live/fatsolko.xyz/privkey.pem", "app:app"]
+
 
 
 

@@ -9,7 +9,7 @@ index = """
 
 <BODY BGCOLOR="FFFFFF">
 
-<CENTER><IMG SRC="https://pbs.twimg.com/profile_images/1487789259/x_489697e0_400x400.jpg" ALIGN="CENTER"> </CENTER>
+<CENTER><IMG SRC="https://pbs.twimg.com/profile_images/1487789259/x_489697e0_400x400.jpg"> </CENTER>
 
 <HR>
 
@@ -163,7 +163,7 @@ redirect_new_page = """
   </head>
   <body>
     <div class="img-container"> <!-- Block parent element -->
-      <img src="https://www.pngitem.com/pimgs/m/341-3416354_blue-tick-icon-success-icon-png-transparent-png.png" alt="Succsess!" width="660" height="700">
+      <img src="https://www.pngitem.com/pimgs/m/341-3416354_blue-tick-icon-success-icon-png-transparent-png.png" alt="Succsess!" width="360" height="400">
     </div>
   </body>
 </html>

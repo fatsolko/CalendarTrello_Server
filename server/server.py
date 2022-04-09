@@ -112,7 +112,8 @@ def redirect_mq():
                    "client_secret": CLIENT_SECRET}
          }
     set_creds_db_data(request_ip, j)
-    return pages.redirect_new_page, 200
+    # return pages.redirect_new_page, 200
+    return redirect("https://t.me/CalendarTrello_Bot")
 
 
 if __name__ == "__main__":

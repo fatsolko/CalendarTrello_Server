@@ -71,7 +71,7 @@ def notify_success_google_auth(chat_id, success):
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return 404, error_page
+    return error_page, 404
 
 
 @app.route("/", methods=['GET'])
@@ -94,7 +94,7 @@ def login_mq():
     url = unquote(url)
     web_page = first_page.replace("{url1}", url).replace("{url2}", url)
     # print('login done')
-    return web_page, 200
+    return web_page
 
 
 @app.route("/redirect", methods=['GET'])

@@ -7,7 +7,6 @@ RUN apt update && \
 COPY ./requirements.txt /requirements.txt
 COPY ./server /server
 
-
 RUN pip3 install --no-cache-dir --user -r requirements.txt
 
 EXPOSE 80

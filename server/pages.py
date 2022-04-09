@@ -140,7 +140,7 @@ redirect_new_page = """
   </head>
   <body>
     <div class="img-container"> <!-- Block parent element -->
-      <img src="https://www.pngitem.com/pimgs/m/341-3416354_blue-tick-icon-success-icon-png-transparent-png.png" alt="Succsess!" width="860" height="900">
+      <img src="https://www.pngitem.com/pimgs/m/341-3416354_blue-tick-icon-success-icon-png-transparent-png.png" alt="Succsess!" width="660" height="700">
     </div>
   </body>
 </html>

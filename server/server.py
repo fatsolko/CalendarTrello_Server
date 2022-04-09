@@ -91,7 +91,7 @@ def login_mq():
     # get auth link and encode
     url = request.url.split("&auth_link=", 1)[1]
     url = unquote(url)
-    web_page = pages.first_page.replace("{url1}", url).replace("{url2}", url)
+    # web_page = pages.first_page.replace("{url1}", url).replace("{url2}", url)
     return redirect(url)
 
 

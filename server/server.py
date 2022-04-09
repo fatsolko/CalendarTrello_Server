@@ -65,7 +65,7 @@ def notify_success_google_auth(chat_id, success):
     else:
         msg = "Похоже, вы уже авторизовались. Если хотите перелогиниться в этот аккаунт, " \
               + "запретите доступ приложению CalendarTrello по ссылке" \
-                " https://myaccount.google.com/u/0/permissions и попробуйте еще раз: /start"
+                " https://myaccount.google.com/u/0/permissions и попробуйте еще раз:\n/start"
         bot.send_message(chat_id, msg, reply_markup=hideBoard)
 
 

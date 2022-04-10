@@ -31,7 +31,7 @@ error_page = """
 <body>
 <meta charset="utf-8">
 <h1>Authorization error</h1>
-<h2>Похоже, вы уже авторизовались. Если хотите перелогиниться в этот аккаунт, запретите доступ приложению
+<h2>Похоже, вы уже авторизовались. Если хотите пройти авторизацию ещё раз, запретите доступ приложению
  CalendarTrello по ссылке https://myaccount.google.com/u/0/permissions и попробуйте еще раз</h2>
 <img src="https://sun9-86.userapi.com/impg/FAW9sJf02MbPCNtH1gSqVTysI9cbrtMTYz64Mw/OcPPwSeBk88.jpg?size=640x640&quality=96&sign=6ebe995511e5ca5b72db78734a80b010&type=album" width="640" height="640" class="center"/>
 </body>

@@ -1,19 +1,15 @@
 index = """
 <HTML>
-
 <HEAD>
-
-<TITLE>Hi this is Fatsolko!</TITLE>
-
+<TITLE>Welcome!</TITLE>
 </HEAD>
-
 <BODY BGCOLOR="FFFFFF">
 
-<CENTER><IMG SRC="https://pbs.twimg.com/profile_images/1487789259/x_489697e0_400x400.jpg"> </CENTER>
+<LEFT><IMG SRC="https://pbs.twimg.com/profile_images/1487789259/x_489697e0_400x400.jpg"> </LEFT>
 
 <HR>
 
-<b>Welcome!</b>
+<b>Hi this is Fatsolko!</b>
 
 <HR>
 

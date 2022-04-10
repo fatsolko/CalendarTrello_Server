@@ -13,7 +13,7 @@ index = """
 
 <HR>
 
-<b>Welcome ALIGN="CENTER"</b>
+<b>Welcome!</b>
 
 <HR>
 

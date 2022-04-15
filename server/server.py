@@ -9,7 +9,6 @@ from urllib.parse import unquote
 from flask_talisman import Talisman
 from dotenv import load_dotenv
 import datetime
-
 load_dotenv()
 
 CREDENTIALS = os.getenv('CREDENTIALS')

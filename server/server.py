@@ -8,6 +8,7 @@ from pymongo_utils import *
 from urllib.parse import unquote
 from flask_talisman import Talisman
 from dotenv import load_dotenv
+import datetime
 
 load_dotenv()
 
@@ -86,7 +87,8 @@ def login_mq():
     chat_id = request.args.get('user')
     # send info to db
     j = {"chat_id": chat_id,
-         "ip": request_ip}
+         "ip": request_ip,
+         "time": datetime.datetime.now()}
     set_creds_db_data(request_ip, j)
     # get auth link and encode
     url = request.url.split("&auth_link=", 1)[1]

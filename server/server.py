@@ -88,7 +88,7 @@ def login_mq():
     j = {"chat_id": chat_id,
          "ip": request_ip,
          "time": datetime.datetime.now()}
-    set_creds_db_data(request_ip, j)
+    set_creds_db_data(chat_id, j)
     # get auth link and encode
     url = request.url.split("&auth_link=", 1)[1]
     url = unquote(url)

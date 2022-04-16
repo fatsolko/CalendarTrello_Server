@@ -48,7 +48,7 @@ def set_creds_db_data(file, data):
         return the document's id.
         """
     creds_collection = db['user creds']
-    return creds_collection.update_one({'ip': file}, {"$set": data}, upsert=True)
+    return creds_collection.update_one({'chat_id': file}, {"$set": data}, upsert=True)
 
 
 def get_google_token(chat_id):

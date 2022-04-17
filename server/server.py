@@ -8,6 +8,7 @@ from pymongo_utils import *
 from urllib.parse import unquote
 from flask_talisman import Talisman
 from dotenv import load_dotenv
+from sentry_sdk.integrations.flask import FlaskIntegration
 import datetime
 load_dotenv()
 
@@ -22,6 +23,16 @@ REDIRECT_URI_LOCALHOST = os.getenv('REDIRECT_URI_LOCALHOST')
 IP = os.getenv('IP')
 PORT = os.getenv('PORT')
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
+
+sentry_sdk.init(
+    dsn="https://44e9cfac6ef748f3939de0a21e63b8b7@o1207504.ingest.sentry.io/6340940",
+    integrations=[FlaskIntegration()],
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=1.0
+)
 
 app = Flask(__name__)
 Talisman(app, content_security_policy=None)

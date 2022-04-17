@@ -128,6 +128,11 @@ def redirect_mq():
     return redirect("https://t.me/CalendarTrello_Bot")
 
 
+@app.route('/debug-sentry')
+def trigger_error():
+    division_by_zero = 1 / 0
+
+
 if __name__ == "__main__":
     app.debug = True
     app.run(

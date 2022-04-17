@@ -13,7 +13,7 @@ RUN pip install --no-cache-dir --user -r ./requirements.txt
 COPY ./server /server
 
 
-EXPOSE 8080 443
+EXPOSE 8080
 
 # include the -u flag to have our stdout logged
 CMD ["python","-u", "server/server.py"]

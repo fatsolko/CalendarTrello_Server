@@ -33,7 +33,8 @@ deploy:
       "docker container rm -f server || true"
     - ssh -i $ID_RSA -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP
       "docker run --env-file /home/fatsolko/env.file 
-                  -d -p 443:80 
+                  -d 
+                  -p 443:8080 
                   -v /etc/letsencrypt/:/etc/letsencrypt/
                   --name server $IMAGE_TAG_COMMIT"
   environment:

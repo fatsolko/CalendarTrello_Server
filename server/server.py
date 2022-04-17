@@ -8,6 +8,7 @@ from pymongo_utils import *
 from urllib.parse import unquote
 from flask_talisman import Talisman
 from dotenv import load_dotenv
+import sentry_sdk
 from sentry_sdk.integrations.flask import FlaskIntegration
 import datetime
 load_dotenv()

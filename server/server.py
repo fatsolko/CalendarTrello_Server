@@ -1,16 +1,19 @@
+import datetime
+from urllib.parse import unquote
+
+import requests
+import sentry_sdk
+from dotenv import load_dotenv
 from flask import Flask
 from flask import request, redirect
+from flask_talisman import Talisman
 from requests.structures import CaseInsensitiveDict
-import requests
-from utils_server import *
+from sentry_sdk.integrations.flask import FlaskIntegration
+
 import pages
 from pymongo_utils import *
-from urllib.parse import unquote
-from flask_talisman import Talisman
-from dotenv import load_dotenv
-import sentry_sdk
-from sentry_sdk.integrations.flask import FlaskIntegration
-import datetime
+from utils_server import *
+
 load_dotenv()
 
 CREDENTIALS = os.getenv('CREDENTIALS')

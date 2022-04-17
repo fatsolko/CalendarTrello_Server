@@ -16,6 +16,7 @@ load_dotenv()
 CREDENTIALS = os.getenv('CREDENTIALS')
 CLIENT_SECRET = os.getenv('CLIENT_SECRET')
 CLIENT_ID = os.getenv('CLIENT_ID')
+SENTRY_DSN_SERVER = os.getenv('SENTRY_DSN_SERVER')
 
 BOT_TOKEN = os.getenv('BOT_TOKEN')
 TRELLO_KEY = os.getenv('TRELLO_KEY')
@@ -25,8 +26,9 @@ IP = os.getenv('IP')
 PORT = os.getenv('PORT')
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
+
 sentry_sdk.init(
-    dsn="https://44e9cfac6ef748f3939de0a21e63b8b7@o1207504.ingest.sentry.io/6340940",
+    dsn=SENTRY_DSN_SERVER,
     integrations=[FlaskIntegration()],
 
     # Set traces_sample_rate to 1.0 to capture 100%

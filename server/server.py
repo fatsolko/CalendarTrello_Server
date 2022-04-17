@@ -39,7 +39,6 @@ sentry_sdk.init(
 
 app = Flask(__name__)
 Talisman(app, content_security_policy=None)
-
 bot = telebot.TeleBot(BOT_TOKEN)
 
 
@@ -141,4 +140,3 @@ if __name__ == "__main__":
     app.run(
         ssl_context=('/etc/letsencrypt/live/fatsolko.xyz/cert.pem', '/etc/letsencrypt/live/fatsolko.xyz/privkey.pem'),
         host=IP, port=PORT)
-# ssl_context=('/etc/letsencrypt/live/fatsolko.xyz/cert.pem', '/etc/letsencrypt/live/fatsolko.xyz/privkey.pem'),

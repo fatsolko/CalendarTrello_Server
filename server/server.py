@@ -137,6 +137,10 @@ def redirect_mq():
 def trigger_error():
     division_by_zero = 1 / 0
 
+@app.route('/policy')
+def policy():
+    return pages.policy
+
 
 if __name__ == "__main__":
     app.debug = True

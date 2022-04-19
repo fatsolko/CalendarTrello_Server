@@ -171,7 +171,6 @@ privacy_policy = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Privacy Policy for fatsolko</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -193,22 +192,7 @@ privacy_policy = """
     </script>
 </head>
 <body>
-<div class="page">
-<div class="header">
-<div class="container">
-<p class="title">Privacy Policy for fatsolko</p>
-</div>
-</div>
 
-<div class="translations-list-container">
-<div class="container">
-<ul class="translations-list">
-<li class="en translations-list-item">
-<a class="tab-link active" href="#en">English</a>
-</li>
-</ul>
-</div>
-</div>
 
 <div class="translations-content-container">
 <div class="container">
@@ -380,7 +364,7 @@ privacy_policy = """
 <h1>Contact Us</h1>
 <p>If you have any questions about this Privacy Policy, You can contact us:</p>
 <ul>
-<li>By email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="99fdfcf7abadaaadaaaca1d9fef4f8f0f5b7faf6f4">[email&#160;protected]</a></li>
+<li>By email:den2434358@gmail.com</li>
 </ul>
 </div>
 </div>

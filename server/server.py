@@ -29,7 +29,6 @@ IP = os.getenv('IP')
 PORT = os.getenv('PORT')
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
-
 sentry_sdk.init(
     dsn=SENTRY_DSN_SERVER,
     integrations=[FlaskIntegration()],
@@ -141,6 +140,11 @@ def trigger_error():
 @app.route('/privacy_policy')
 def policy():
     return pages.privacy_policy
+
+
+@app.route('/terms')
+def terms():
+    return pages.terms
 
 
 if __name__ == "__main__":

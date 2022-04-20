@@ -3,6 +3,7 @@ from urllib.parse import unquote
 
 import requests
 import sentry_sdk
+import telebot
 from dotenv import load_dotenv
 from flask import Flask
 from flask import request, redirect

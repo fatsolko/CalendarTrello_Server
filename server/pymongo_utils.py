@@ -10,7 +10,7 @@ MONGO_INITDB_ROOT_USERNAME = os.getenv('MONGO_INITDB_ROOT_USERNAME')
 MONGO_INITDB_ROOT_PASSWORD = os.getenv('MONGO_INITDB_ROOT_PASSWORD')
 MONGO_INITDB_ROOT_IP = os.getenv('MONGO_INITDB_ROOT_IP')
 # Create the client
-client = MongoClient(f"mongodb+srv://{MONGO_INITDB_ROOT_USERNAME}:{MONGO_INITDB_ROOT_PASSWORD}"
+client = MongoClient(f"mongodb://{MONGO_INITDB_ROOT_USERNAME}:{MONGO_INITDB_ROOT_PASSWORD}"
                      f"@{MONGO_INITDB_ROOT_IP}/?authMechanism=DEFAULT")
 # MONGODB_LOGIN = os.getenv("MONGODB_LOGIN")
 # # Create the client

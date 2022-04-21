@@ -5,9 +5,16 @@ from pymongo import MongoClient
 
 load_dotenv()
 
-MONGODB_LOGIN = os.getenv("MONGODB_LOGIN")
+MONGODB_LOGIN = os.getenv('MONGODB_LOGIN')
+MONGO_INITDB_ROOT_USERNAME = os.getenv('MONGO_INITDB_ROOT_USERNAME')
+MONGO_INITDB_ROOT_PASSWORD = os.getenv('MONGO_INITDB_ROOT_PASSWORD')
+MONGO_INITDB_ROOT_IP = os.getenv('MONGO_INITDB_ROOT_IP')
 # Create the client
-client = MongoClient(f"mongodb+srv://{MONGODB_LOGIN}@clusterbotequip.aj1qm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+client = MongoClient(f"mongodb+srv://{MONGO_INITDB_ROOT_USERNAME}:{MONGO_INITDB_ROOT_PASSWORD}"
+                     f"@{MONGO_INITDB_ROOT_IP}/?authMechanism=DEFAULT")
+# MONGODB_LOGIN = os.getenv("MONGODB_LOGIN")
+# # Create the client
+# client = MongoClient(f"mongodb+srv://{MONGODB_LOGIN}@clusterbotequip.aj1qm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 
 # Connect to our database
 db = client['CalendarTrello']

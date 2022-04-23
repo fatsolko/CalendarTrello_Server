@@ -9,8 +9,8 @@ index = """
 
 <HR>
 
-<b>Hi this is Fatsolko!</b>
-<b>\nThis is the website for hosting the CalendarTrello application server and authorization through Google Oauth2</b>
+<b>Hi this is Fatsolko!<br>This is the website for hosting the CalendarTrello application server and authorization through Google Oauth2</b>
+
 <p><a href="https://fatsolko.xyz/privacy_policy">Privacy policy</a></p>
 <p><a href="https://fatsolko.xyz/terms">Terms</a></p>
 

@@ -39,7 +39,16 @@ sentry_sdk.init(
     traces_sample_rate=1.0
 )
 
+
 app = Flask(__name__)
+
+app.config.update(
+    SESSION_COOKIE_SECURE=True,
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SAMESITE='Lax',
+)
+
+
 Talisman(app, content_security_policy=None)
 bot = telebot.TeleBot(BOT_TOKEN)
 

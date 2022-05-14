@@ -104,7 +104,7 @@ def index():
 
 
 @app.route("/login", methods=['GET'])
-def login_mq():
+def login():
     # print('got request for ' + request.url)
     request_ip = request.environ['REMOTE_ADDR']
     chat_id = request.args.get('user')
